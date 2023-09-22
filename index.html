@@ -1,3 +1,8 @@
+<!-- 
+  TODO: Create an audio playlist and place it on the right side
+  TODO: Use hamburger menu
+  TODO: Open only the playlist when the user hovers the menu
+ -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,20 +10,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Christmas Countdown</title>
+  <!-- favicon -->
+  <link rel="icon" href="./san.png" type="image/x-icon">
   <!-- CSS -->
   <link rel="stylesheet" href="./style.css"/>
   <!-- Google Font -->
-  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body>
-  <!-- <div class="video-container">
-    <video autoplay loop playsinline>
-      <source src="video1.mp4" type="video/mp4">
+<body id="body">
+  
+
+  <div class="video-container">
+    <video id="myVideo" autoplay loop muted playsinline>
+      <source src="./video1.mp4" type="video/mp4">
     </video>
-  </div> -->
+  </div>
     <div class="main-wrapper">
       <h1 class="title">Christmas Countdown</h1>
   
@@ -43,13 +52,47 @@
           <h3>secs</h3>
         </div>
       </div>
+
+      <!-- Add attribute CONTROLS in audio for users -->
+      <audio id="myAudio" loop muted autoplay playsinline>
+        <source src="./song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
     </div>
-
   <!-- JS file -->
-  <script src="./pasko.js"></script>
-
+  <script src="./script.js"></script>
 </body>
 <footer>
   <p>Copyright &copy; 2023 charlitodanes.me &ndash; All Rights Reserved.</p>
 </footer>
 </html>
+
+
+<!-- 
+ !Creating a audio playlist
+     <h1>Audio Playlist</h1>
+    <ul id="playlist">
+        <li><button onclick="playAudio(0)">Song 1</button></li>
+        <li><button onclick="playAudio(1)">Song 2</button></li>
+        <li><button onclick="playAudio(2)">Song 3</button></li>
+    </ul>
+
+    <audio id="audioPlayer" controls>
+        <source src="song1.mp3" type="audio/mpeg">
+        <source src="song2.mp3" type="audio/mpeg">
+        <source src="song3.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        const audioPlayer = document.getElementById("audioPlayer");
+        const playlist = document.getElementById("playlist").getElementsByTagName("button");
+
+        function playAudio(index) {
+            audioPlayer.src = `song${index + 1}.mp3`;
+            audioPlayer.load(); // Load the new audio source
+            audioPlayer.play(); // Play the new audio
+        }
+    </script>
+ -->
