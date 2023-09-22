@@ -24,12 +24,12 @@ pasko();
 
 setInterval(pasko, 1000);
 
-// const backgroundVideo = document.getElementById("myVideo");
+const backgroundVideo = document.getElementById("myVideo");
 
-//     // Activates the event listener when the background video is already playing
-//     backgroundVideo.addEventListener("play", function () {
-//         alert("Click anywhere on the page for a surprise :)");
-// });
+    // Activates the event listener when the background video is already playing
+    backgroundVideo.addEventListener("play", function () {
+        alert("Click anywhere on the page for a surprise :)");
+});
 
 const body = document.getElementById("body");
 const audio = document.getElementById("myAudio");
