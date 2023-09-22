@@ -57,6 +57,7 @@ video {
   text-shadow: 2px 2px #e24747;
   font-size: 80px;
   font-weight: 700;
+  word-spacing: 10px;
 }
 
 .col {
@@ -86,6 +87,7 @@ footer{
 @media screen and (max-width: 480px) {
   .title {
     font-size: 30px;
+    word-spacing: 0;
   }
 
   .col {
