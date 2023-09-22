@@ -28,6 +28,14 @@
       <source src="./video1.mp4" type="video/mp4">
     </video>
   </div>
+  <script>
+    const backgroundVideo = document.getElementById("myVideo");
+
+    // Activates the event listener when the background video is already playing
+    backgroundVideo.addEventListener("play", function () {
+        alert("Click anywhere on the page for a surprise :)");
+    });
+  </script>
     <div class="main-wrapper">
       <h1 class="title">Christmas Countdown</h1>
   
