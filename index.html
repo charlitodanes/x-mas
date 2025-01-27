@@ -9,15 +9,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Christmas Countdown</title>
-  <!-- favicon -->
   <link rel="icon" href="./san.png" type="image/x-icon">
-  <!-- CSS -->
   <link rel="stylesheet" href="./style.css"/>
-  <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body id="body">
   <div class="video-container">
     <video id="myVideo" autoplay loop muted playsinline>
@@ -27,6 +25,7 @@
 
   <div class="main-wrapper">
     <h1 class="title">Christmas Countdown</h1>
+    
     <div class="content-wrapper">
       <div class="col">
         <h2 id="days">1</h2>
@@ -46,17 +45,44 @@
       </div>
     </div>
 
-    <!-- Audio element -->
-    <audio id="myAudio" loop muted autoplay playsinline>
+    <!-- Audio Element -->
+    <audio id="myAudio" loop muted autoplay playsinline preload="auto">
       <source src="./song.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
+      Your browser does not support audio playback.
     </audio>
   </div>
 
-  <!-- JS file -->
+  <footer>
+    <p>Copyright &copy; 2023 charlitodanes.me – All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Video and Audio Handler
+    const backgroundVideo = document.getElementById("myVideo");
+    const audioElement = document.getElementById("myAudio");
+
+    backgroundVideo.addEventListener('play', () => {
+      const userConfirmed = confirm("🎄 Click OK to enjoy Christmas music!");
+      if(userConfirmed) {
+        audioElement.muted = false;
+        audioElement.play().catch(error => {
+          console.log("Autoplay blocked - waiting for user interaction");
+        });
+      }
+    });
+
+    // Click-to-toggle Audio Control
+    document.body.addEventListener('click', () => {
+      if(audioElement.paused) {
+        audioElement.muted = false;
+        audioElement.play();
+      } else {
+        audioElement.pause();
+      }
+    });
+  </script>
+  
+  <!-- External JS -->
   <script src="./script.js"></script>
 </body>
-<footer>
-  <p>Copyright &copy; 2023 charlitodanes.me &ndash; All Rights Reserved.</p>
-</footer>
 </html>
