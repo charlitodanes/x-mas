@@ -5,7 +5,6 @@
  -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,55 +18,41 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body id="body">
-  
-
   <div class="video-container">
     <video id="myVideo" autoplay loop muted playsinline>
       <source src="./video1.mp4" type="video/mp4">
     </video>
   </div>
-  <script>
-    const backgroundVideo = document.getElementById("myVideo");
 
-    // Activates the event listener when the background video is already playing
-    backgroundVideo.addEventListener("play", function () {
-        alert("Click anywhere on the page for a surprise :)");
-    });
-  </script>
-    <div class="main-wrapper">
-      <h1 class="title">Christmas Countdown</h1>
-  
-      <div class="content-wrapper">
-        <div class="col">
-          <h2 id="days">1</h2>
-          <h3>days</h3>
-        </div>
-  
-        <div class="col">
-          <h2 id="hrs">1</h2>
-          <h3>hrs</h3>
-        </div>
-  
-        <div class="col">
-          <h2 id="mins">1</h2>
-          <h3>mins</h3>
-        </div>
-  
-        <div class="col">
-          <h2 id="secs">1</h2>
-          <h3>secs</h3>
-        </div>
+  <div class="main-wrapper">
+    <h1 class="title">Christmas Countdown</h1>
+    <div class="content-wrapper">
+      <div class="col">
+        <h2 id="days">1</h2>
+        <h3>days</h3>
       </div>
-
-      <!-- Add attribute CONTROLS in audio for users -->
-      <audio id="myAudio" loop muted autoplay playsinline>
-        <source src="./song.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
-
+      <div class="col">
+        <h2 id="hrs">1</h2>
+        <h3>hrs</h3>
+      </div>
+      <div class="col">
+        <h2 id="mins">1</h2>
+        <h3>mins</h3>
+      </div>
+      <div class="col">
+        <h2 id="secs">1</h2>
+        <h3>secs</h3>
+      </div>
     </div>
+
+    <!-- Audio element -->
+    <audio id="myAudio" loop muted autoplay playsinline>
+      <source src="./song.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
   <!-- JS file -->
   <script src="./script.js"></script>
 </body>
@@ -75,32 +60,3 @@
   <p>Copyright &copy; 2023 charlitodanes.me &ndash; All Rights Reserved.</p>
 </footer>
 </html>
-
-
-<!-- 
- !Creating a audio playlist
-     <h1>Audio Playlist</h1>
-    <ul id="playlist">
-        <li><button onclick="playAudio(0)">Song 1</button></li>
-        <li><button onclick="playAudio(1)">Song 2</button></li>
-        <li><button onclick="playAudio(2)">Song 3</button></li>
-    </ul>
-
-    <audio id="audioPlayer" controls>
-        <source src="song1.mp3" type="audio/mpeg">
-        <source src="song2.mp3" type="audio/mpeg">
-        <source src="song3.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-
-    <script>
-        const audioPlayer = document.getElementById("audioPlayer");
-        const playlist = document.getElementById("playlist").getElementsByTagName("button");
-
-        function playAudio(index) {
-            audioPlayer.src = `song${index + 1}.mp3`;
-            audioPlayer.load(); // Load the new audio source
-            audioPlayer.play(); // Play the new audio
-        }
-    </script>
- -->
