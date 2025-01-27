@@ -1,52 +1,70 @@
-let daysEl = document.getElementById("days");
-let hrsEl = document.getElementById("hrs");
-let minsEl = document.getElementById("mins");
-let secsEl = document.getElementById("secs");
+// Countdown Elements
+const daysEl = document.getElementById("days");
+const hrsEl = document.getElementById("hrs");
+const minsEl = document.getElementById("mins");
+const secsEl = document.getElementById("secs");
 
+// Media Elements
+const backgroundVideo = document.getElementById("myVideo");
+const audioElement = document.getElementById("myAudio");
+
+// Countdown to Christmas 2025
 function pasko() {
-  const xmas = new Date("December 25, 2025 00:00:00").getTime();
-  const now = new Date().getTime();
-  const days_left = xmas - now;
+  const christmasDate = new Date("December 25, 2025 00:00:00").getTime();
+  const currentDate = new Date().getTime();
+  const timeDifference = christmasDate - currentDate;
 
-  if (days_left <= 0) {
-    daysEl.innerHTML = 0;
-    hrsEl.innerHTML = 0;
-    minsEl.innerHTML = 0;
-    secsEl.innerHTML = 0;
-    alert("Pasko na!");
-    return; // Stop the function if Christmas has passed
+  if (timeDifference <= 0) {
+    daysEl.textContent = "0";
+    hrsEl.textContent = "0";
+    minsEl.textContent = "0";
+    secsEl.textContent = "0";
+    alert("Pasko na! Maligayang Pasko!");
+    return;
   }
 
-  const days = Math.floor(days_left / (1000 * 60 * 60 * 24));
-  const hrs = Math.floor((days_left % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const mins = Math.floor((days_left % (1000 * 60 * 60)) / (1000 * 60));
-  const secs = Math.floor((days_left % (1000 * 60)) / 1000);
+  const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
-  daysEl.innerHTML = days;
-  hrsEl.innerHTML = hrs;
-  minsEl.innerHTML = mins;
-  secsEl.innerHTML = secs;
+  daysEl.textContent = days;
+  hrsEl.textContent = hours;
+  mins.textContent = minutes;
+  secs.textContent = seconds;
 }
 
-pasko(); // Initial call to display the countdown immediately
-setInterval(pasko, 1000); // Update the countdown every second
+// Initialize Countdown
+pasko();
+setInterval(pasko, 1000);
 
-// Audio handling
-const body = document.getElementById("body");
-const audio = document.getElementById("myAudio");
-let isAudioPlaying = false;
-
-if (body && audio) { // Check if elements exist
-  body.addEventListener("click", function () {
-    if (isAudioPlaying) {
-      audio.pause();
-      isAudioPlaying = false;
-    } else {
-      audio.muted = false;
-      audio.play();
-      isAudioPlaying = true;
+// Media Controls
+backgroundVideo.addEventListener('play', () => {
+  const userConfirmed = confirm("🎅 Click OK to start Christmas music!");
+  if(userConfirmed) {
+    try {
+      audioElement.muted = false;
+      audioElement.play();
+    } catch (error) {
+      console.error("Audio playback failed:", error);
     }
+  }
+});
+
+// Click-to-Toggle Audio Control
+document.body.addEventListener('click', () => {
+  if(audioElement.paused) {
+    audioElement.play().catch(error => {
+      console.log("Audio requires user interaction");
+    });
+  } else {
+    audioElement.pause();
+  }
+});
+
+// Browser Autoplay Fallback
+window.addEventListener('load', () => {
+  audioElement.play().catch(error => {
+    console.log("Autoplay blocked - waiting for user interaction");
   });
-} else {
-  console.error("Element with id 'body' or 'myAudio' not found!");
-}
+});
