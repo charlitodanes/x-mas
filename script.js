@@ -4,7 +4,7 @@ let minsEl = document.getElementById("mins");
 let secsEl = document.getElementById("secs");
 
 function pasko() {
-  const xmas = new Date("2023-12-25 00:00:00").getTime();
+  const xmas = new Date("2025-12-25 00:00:00").getTime();
   const now = new Date().getTime();
   const days_left = xmas - now;
   const days = Math.floor(days_left / (1000 * 60 * 60 * 24));
