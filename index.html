@@ -62,7 +62,7 @@
     const audioElement = document.getElementById("myAudio");
 
     backgroundVideo.addEventListener('play', () => {
-      const userConfirmed = confirm("🎄 Click OK to enjoy Christmas music!");
+      const userConfirmed = confirm("🎄 Click anywhere on the screen to enjoy Christmas music!");
       if(userConfirmed) {
         audioElement.muted = false;
         audioElement.play().catch(error => {
